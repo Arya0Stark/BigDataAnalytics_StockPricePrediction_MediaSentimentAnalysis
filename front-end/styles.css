@@ -1,0 +1,134 @@
+
+
+/* styles.css */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: white; /* Set the text color to white */
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+header {
+    background-color: #ffffff;
+    color: #3498db;
+    text-align: center;
+    padding: 20px 0;
+}
+
+nav {
+    background-color: #3498db;
+    overflow: hidden;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+nav a {
+    display: block;
+    padding: 15px 20px;
+    color: #ffffff;
+    text-decoration: none;
+    transition: transform 0.3s;
+}
+
+nav a:hover {
+    background-color: #2980b9;
+    transform: scale(1.2); /* Zoom effect on hover */
+}
+/* styles.css */
+
+/* Add this rule to style active sections */
+
+
+section {
+    margin: 20px 0;
+    padding: 20px;
+    background-color: #2980b9;
+    border-radius: 10px;
+    color: white; /* Set the text color to white */
+}
+
+/* Additional styles for images and scenarios */
+section img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin-top: 10px;
+}
+
+#google, #amazon, #microsoft {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#google section, #amazon section, #microsoft section {
+    width: 48%; /* Adjust the width as needed */
+    margin: 10px;
+    box-sizing: border-box;
+}
+section.active {
+    max-height: 50px; 
+    overflow: hidden;
+    transition: max-height 0.5s ease-in-out;
+}
+
+/* Add your styles here */
+
+/* Add your styles here */
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.popup-content {
+    position: relative;
+    color: #000; 
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    color: #000; /* Black color for the close button */
+    cursor: pointer;
+}
+
+.popup-images {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.popup-images div {
+    width: 48%; /* Adjust the width as needed to fit two images side by side */
+    margin-bottom: 10px;
+}
+
+.close-btn {
+    background-color: #000; /* Black color for the close button */
+    color: #fff;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    margin-top: 20px;
+}

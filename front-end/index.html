@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Price Prediction based on Sentiment Analysis</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header>
+        <h1>Stock Price Prediction based on Sentiment Analysis</h1>
+        <nav>
+            <ul>
+                <li><a href="#problem-statement">Problem Statement</a></li>
+                <li><a href="#data">Data</a></li>
+                <li><a href="#pca">Effect of PCA</a></li>
+                <li><a href="#models">Models Trained</a></li>
+                <li><a href="#experiments">Experiments</a></li>
+                <li><a href="#overview">System Overview</a></li>
+                <li><a href="#results">Results</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="problem-statement">
+            <h2>Problem Statement</h2>
+            <!--  -->
+            <h3>Objectives</h3>
+            <ul>
+                <li>Handling significantly large data and predicting the nature of changing stocks</li>
+                <li>To effectively compare different ML models by using ensemble learning</li>
+                <li>To see the nature of deep learning models used in short-term and long-term cases</li>
+                <li>Comparatively analyzing their accuracies to glean an understanding of their performance</li>
+                <!-- Add more bullet points as needed -->
+            </ul>
+        </section>
+
+        <section id="data">
+            <h2>Data</h2>
+            <ol>
+                <li>Tweets - Sentiment Analysis for tweets employs "twscrape" for extracting the Twitter data. Since the market is not open every day, we extracted the dates on which the market is open and collected the tweets for each company. The following features were extracted in the dataset extracted via the twscrape API:</li>
+                
+                <ul>
+                    <li>Date: Date in which the tweet is made</li>
+                    <li>Tweet: The tweet from a user about the company.</li>
+                    <!-- Add more features as needed -->
+                </ul>
+                <div style="display: flex; justify-content: space-between;">
+                    <img src="miw.png" alt="Microsoft" style="max-width: 200px; margin-right: 10px;">
+                    <img src="gow.png" alt="Google" style="max-width: 200px; margin-right: 10px;">
+                    <img src="amw.png" alt="Amazon" style="max-width: 200px;">
+                </div>
+                <li>Stock Data - Stock price and volumes since 2021-01-01, i.e., 3 years are extracted using YahooFinance by selecting 3 companies: Google, Amazon, and Microsoft. Data comprised of: Open, High, Low, Volume, Close, Adjusted Closing Price(a better predictor than the closing price).</li>
+                
+                <!-- Add more details as needed -->
+            </ol>
+        </section>
+
+        <section id="pca">
+            <h2>Effect of PCA</h2>
+    <ul>
+        <!-- Microsoft -->
+        <li>
+            <h3>Microsoft:</h3>
+            <p>
+                In general, PCA results in a higher Mean Squared Error (MSE) for all models and scenarios.
+                The R2 scores are slightly lower with PCA, indicating a moderate impact on predictive accuracy.
+            </p>
+        </li>
+
+        <!-- Google -->
+        <li>
+            <h3>Google:</h3>
+            <p>
+                The impact of PCA is inconsistent. While there is a slight increase in MSE for some scenarios,
+                others see a decrease or remain similar. R2 scores are generally maintained well with or without PCA.
+            </p>
+        </li>
+
+        <!-- Amazon -->
+        <li>
+            <h3>Amazon:</h3>
+            <p>
+                PCA tends to increase MSE for most scenarios, indicating a potential trade-off between
+                dimensionality reduction and predictive accuracy. R2 scores also show a slight decrease in some cases.
+            </p>
+        </li>
+    </ul>
+        </section>
+
+        <section id="models">
+            <h2>Models Trained</h2>
+            <!-- Your content for models trained goes here -->
+            <img src="models.png" alt="Models Image">
+        </section>
+
+        <section id="experiments">
+            <h2>Experiments</h2>
+            <img src="experiments.png" alt="Experiments Image">
+            <!-- Your content for experiments goes here -->
+        </section>
+
+        <section id="overview">
+            <h2>System Overview</h2>
+            <!-- Your content for system overview goes here -->
+            <img src="fc1.png" alt="System Overview Image">
+        </section>
+
+        <section id="results">
+            <h2>Results</h2>
+            <button onclick="openPopup('microsoft')">Microsoft</button>
+            <button onclick="openPopup('google')">Google</button>
+            <button onclick="openPopup('amazon')">Amazon</button>
+
+            <!-- Popup containers -->
+            <div id="microsoftPopup" class="popup">
+                <div class="popup-content">
+                    <span class="close" onclick="closePopup('microsoft')">&times;</span>
+                    <h3>Microsoft</h3>
+                    <div class="popup-images">
+                        <!-- Add your image sources and alt text accordingly -->
+                        <div>
+                            <h4>14 Day Without PCA</h4>
+                            <img src="scm1.png" alt="Image 1" style="width: 100%;">
+                        </div>
+                        <div>
+                            <h4>Next Day Without PCA</h4>
+                            <img src="scm2.png" alt="Image 2" style="width: 100%;">
+                        </div>
+                        <div>
+                            <h4>14 Day With PCA</h4>
+                            <img src="scm3.png" alt="Image 3" style="width: 100%;">
+                        </div>
+                        <div>
+                            <h4>Next Day With PCA</h4>
+                            <img src="scm4.png" alt="Image 4" style="width: 100%;">
+                        </div>
+                    </div>
+                    <button class="close-btn" onclick="closePopup('microsoft')">Close</button>
+                </div>
+            </div>
+
+            <div id="googlePopup" class="popup">
+                <div class="popup-content">
+                    <span class="close" onclick="closePopup('google')">&times;</span>
+                    <h3>Google</h3>
+                    <div class="popup-images">
+                        <!-- Add your image sources and alt text accordingly -->
+                        <div>
+                            <h4>14 Day Without PCA</h4>
+                            <img src="scg1.png" alt="Image 1" style="width: 100%;">
+                        </div>
+                        <div>
+                            <h4>Next Day Without PCA</h4>
+                            <img src="scg2.png" alt="Image 2" style="width: 100%;">
+                        </div>
+                        <div>
+                            <h4>14 Day With PCA</h4>
+                            <img src="scg3.png" alt="Image 3" style="width: 100%;">
+                        </div>
+                        <div>
+                            <h4>Next Day With PCA</h4>
+                            <img src="scg4.png" alt="Image 4" style="width: 100%;">
+                        </div>
+                    </div>
+                    <button class="close-btn" onclick="closePopup('google')">Close</button>
+                </div>
+            </div>
+
+            <div id="amazonPopup" class="popup">
+                <div class="popup-content">
+                    <span class="close" onclick="closePopup('amazon')">&times;</span>
+                    <h3>Amazon</h3>
+                    <div class="popup-images">
+                        <!-- Add your image sources and alt text accordingly -->
+                        <div>
+                            <h4>14 Day Without PCA</h4>
+                            <img src="sca1.png" alt="Image 5" style="width: 100%;">
+                        </div>
+                        <div>
+                            <h4>Next Day Without PCA</h4>
+                            <img src="sca2.png" alt="Image 6" style="width: 100%;">
+                        </div>
+                        <div>
+                            <h4>14 Day With PCA</h4>
+                            <img src="sca3.png" alt="Image 7" style="width: 100%;">
+                        </div>
+                        <div>
+                            <h4>Next Day With PCA</h4>
+                            <img src="sca4.png" alt="Image 8" style="width: 100%;">
+                        </div>
+                    </div>
+                    <button class="close-btn" onclick="closePopup('amazon')">Close</button>
+                </div>
+            </div>
+            <h3>Model Observations</h3>
+    <ul>
+        <li>Random Forest consistently performs well across scenarios and companies.</li>
+        <li>Linear Regression tends to have higher MSE values but still maintains reasonable predictive power.</li>
+        <li>AdaBoost shows balanced performance but might be sensitive to the presence of PCA.</li>
+        <li>LSTM performs better with PCA, with lower MSE for the next day than for predicting the values after 14 days.</li>
+    </ul>    
+                
+        </section>
+    </main>
+    
+    <script src="scripts.js"></script>
+</body>
+</html>
